@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import Layout from '../src/components/layout';
+import Layout from '../components/layout';
 
 export default function IndexPage() {
   return (
