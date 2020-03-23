@@ -1,0 +1,18 @@
+version: '3'
+services:
+  work:
+    image: node:10-buster-slim
+    container_name: account-client
+    volumes:
+      - .:/app
+    working_dir: /app
+    tty: true
+    environment:
+      - PORT=8011
+    ports:
+      - 8011:8011
+    command: ['yarn', 'dev', '-p', '8011']
+networks:
+  default:
+    external:
+      name: komachine-network

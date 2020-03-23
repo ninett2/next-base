@@ -1,0 +1,33 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "tsc": "tsc",
+    "tsc:watch": "tsc --watch",
+    "tsc:server": "tsc --project tsconfig.server.json",
+    "tsc:watch-server": "tsc --watch --project tsconfig.server.json",
+    "nodemon": "nodemon",
+    "dev": "concurrently \"yarn tsc:watch-server\" \"yarn nodemon dist/server.js\"",
+    "build": "next build",
+    "start": "node dist/server.js"
+  },
+  "dependencies": {
+    "koa": "^2.11.0",
+    "koa-router": "^8.0.8",
+    "next": "^9.3.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.11.2",
+    "@types/koa-router": "^7.4.0",
+    "@types/node": "^13.9.2",
+    "@types/react": "^16.9.25",
+    "@types/react-dom": "^16.9.5",
+    "concurrently": "^5.1.0",
+    "nodemon": "^2.0.2",
+    "typescript": "^3.8.3"
+  }
+}
