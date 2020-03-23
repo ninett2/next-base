@@ -1,8 +1,9 @@
 import Link from 'next/link';
+import styled from 'styled-components';
 
 const IndexPage = () => (
   <div>
-    <h1>Hello Next.js 👋</h1>
+    <H1>Hello Next.js 👋</H1>
     <p>
       <Link href="/about">
         <a>About</a>
@@ -12,3 +13,10 @@ const IndexPage = () => (
 );
 
 export default IndexPage;
+
+const H1 = styled.h1`
+  color: blue;
+  &:hover {
+    color: red;
+  }
+`;
