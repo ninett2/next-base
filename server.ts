@@ -12,9 +12,9 @@ app.prepare().then(() => {
   const server = new Koa();
   const router = new Router();
 
-  router.get('/a', async (ctx: Context) => {
-    await app.render(ctx.req, ctx.res, '/a', ctx.query);
-  });
+  // router.get('/a', async (ctx: Context) => {
+  //   await app.render(ctx.req, ctx.res, '/a', ctx.query);
+  // });
   router.all('*', async (ctx: Context) => {
     await handle(ctx.req, ctx.res);
   });

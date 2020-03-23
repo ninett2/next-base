@@ -9,7 +9,8 @@
     "tsc:server": "tsc --project tsconfig.server.json",
     "tsc:watch-server": "tsc --watch --project tsconfig.server.json",
     "nodemon": "nodemon",
-    "dev": "concurrently \"yarn tsc:watch-server\" \"yarn nodemon dist/server.js\"",
+    "dev": "nodemon dist/server.js",
+    "dev:watch-server": "concurrently \"yarn tsc:watch-server\" \"yarn nodemon dist/server.js\"",
     "build": "next build",
     "start": "node dist/server.js"
   },
