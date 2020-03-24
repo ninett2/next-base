@@ -1,6 +1,9 @@
-import Koa, { Context } from 'koa';
-import Router from 'koa-router';
+// import Koa, { Context } from 'koa';
+// import Router from 'koa-router';
+import express from 'express';
 import next from 'next';
+import nextI18NextMiddleware from 'next-i18next/middleware';
+import nextI18next from './src/commons/i18n';
 
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
@@ -9,20 +12,17 @@ const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
   console.log('Hello');
-  const server = new Koa();
-  const router = new Router();
+  // const server = new Koa();
+  // const router = new Router();
+  const server = express();
+  server.use(nextI18NextMiddleware(nextI18next));
 
-  // router.get('/a', async (ctx: Context) => {
-  //   await app.render(ctx.req, ctx.res, '/a', ctx.query);
+  // server.get('/a', (req, res) => {
+  //   return app.render(req, res, '/a', req.query);
   // });
-  router.all('*', async (ctx: Context) => {
-    await handle(ctx.req, ctx.res);
+  server.get('*', (req, res) => {
+    return handle(req, res);
   });
-  server.use(async (ctx: Context, next) => {
-    ctx.res.statusCode = 200;
-    await next();
-  });
-  server.use(router.routes());
   server.listen(port, () => {
     console.log(`> Ready on http://localhost:${port}`);
   });
